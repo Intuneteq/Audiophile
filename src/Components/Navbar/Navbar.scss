@@ -1,0 +1,140 @@
+nav {
+  background-color: rgba(0, 0, 0, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.nav__item-menu {
+  width: 16px;
+  height: 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  svg {
+    color: rgba(255, 255, 255, 1);
+    width: 100%;
+    height: 100%;
+  }
+
+  div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 5;
+
+    width: 70%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    background: rgba(14, 14, 14, 1);
+
+    svg {
+      width: 16px;
+      height: 16px;
+
+      margin: 0.5rem 1rem;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+
+      li {
+        list-style: none;
+        margin: 1rem;
+
+        cursor: pointer;
+
+        a {
+          text-decoration: none;
+          text-transform: uppercase;
+
+          color: rgba(255, 255, 255, 1);
+          font-weight: 700;
+          font-size: 1rem;
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            color: rgba(216, 125, 74, 1);
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    display: none;
+  }
+}
+
+.nav__item {
+  padding: 1rem 10rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  @media screen and (max-width: 1200px) {
+    padding: 1rem 2.4rem;
+  }
+
+  @media screen and (max-width: 550px) {
+    padding: 1rem 1.5rem;
+  }
+}
+
+.nav__item-logo {
+  width: 9rem;
+
+  img {
+    width: 100%;
+  }
+}
+
+.nav__item-links {
+  gap: 2rem;
+  list-style: none;
+
+  li {
+    color: rgba(255, 255, 255, 1);
+    list-style: none;
+    cursor: pointer;
+
+    a {
+      text-decoration: none;
+      text-transform: uppercase;
+
+      color: rgba(255, 255, 255, 1);
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        color: rgba(216, 125, 74, 1);
+      }
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    display: none;
+  }
+}
+
+.nav__cart {
+  color: white;
+  cursor: pointer;
+  z-index: 100;
+}
