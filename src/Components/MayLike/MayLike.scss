@@ -48,6 +48,14 @@
         padding: 62px 37px;
     }
 
+    @media screen and (max-width: 900px) {
+        width: 85vw;
+        padding: 62px 0;
+        img {
+            width: 100%;
+        }
+    }
+
     @media screen and (max-width: 550px) {
         width: 100%;
         padding: 18px 0;

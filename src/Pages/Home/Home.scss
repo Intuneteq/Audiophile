@@ -10,10 +10,14 @@
   justify-content: center;
   gap: 3rem;
 
-  @media screen and (max-width: 1200px) {
+  // border: 1px solid green;
+
+  @media screen and (max-width: 1000px) {
     flex-direction: column;
     position: relative;
     margin-top: -10px;
+    padding: 2rem 0;
+    border: none;
   }
 }
 
@@ -61,7 +65,7 @@
     }
   }
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1000px) {
     z-index: 2;
     line-height: 5px;
     position: absolute;
@@ -74,11 +78,13 @@
 
   @media screen and (max-width: 550px) {
     width: 350px;
+    text-align: center;
     h1 {
       letter-spacing: 1.29px;
       line-height: 40px;
       font-size: 36px;
       margin-top: -15px;
+      text-align: center;
     }
 
     p {
@@ -106,9 +112,12 @@
   }
 
   @media screen and (max-width: 550px) {
-    width: 36rem;
+    width: 85vw;
+    margin: 0;
     img {
-      width: 95%;
+      width: 100%;
+      transform: scale(1.2, 1.2);
+      justify-self: center;
     }
   }
 }
