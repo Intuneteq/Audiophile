@@ -31,9 +31,12 @@ const Home = () => {
                   build quality made for the passionate music
                   <br /> enthusiast.
                 </p>
-                <Link to={`/product-details/${filtered.slug.current}`} state={filtered}>
-                <button>SEE PRODUCT</button>
-              </Link>
+                <Link
+                  to={`/product-details/${filtered.slug.current}`}
+                  state={filtered}
+                >
+                  <button>SEE PRODUCT</button>
+                </Link>
               </div>
               <div className="home__section-image">
                 <img src={Images.headphone1} alt="headphone" />
@@ -44,8 +47,12 @@ const Home = () => {
       <div className="margin">
         <ShopBanner />
       </div>
-      <SpeakerBanner />     
-      <EarphoneBanner />
+      <div>
+        <SpeakerBanner />
+      </div>
+      <div className="margin">
+        <EarphoneBanner />
+      </div>
       <div className="margin">
         <AudioAd />
       </div>

@@ -15,10 +15,18 @@ const EarphoneBanner = () => {
       </div>
       <div className="banner-content">
         <h1>YX1 EARPHONES</h1>
-        {earphones.filter((earphone)=>earphone.name.includes('YX1 WIRELESS EARPHONES')).map((filtered)=>(
-          <Link to={`/product-details/${filtered.slug.current}`} state={filtered} key={filtered._id}>
-            <button>SEE PRODUCT</button>
-          </Link>
+        {earphones
+          .filter((earphone) =>
+            earphone.name.includes("YX1 WIRELESS EARPHONES")
+          )
+          .map((filtered) => (
+            <Link
+              to={`/product-details/${filtered.slug.current}`}
+              state={filtered}
+              key={filtered._id}
+            >
+              <button>SEE PRODUCT</button>
+            </Link>
           ))}
       </div>
     </div>
