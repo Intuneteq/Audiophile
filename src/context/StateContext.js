@@ -33,8 +33,8 @@ export const StateContext = ({ children }) => {
             ...cartProduct,
             quantity: cartProduct.quantity + quantity,
           };
-      });
-      setCartItems(updatedCartItems);
+          return setCartItems(updatedCartItems);
+        });
     } else {
       product.quantity = quantity;
 
@@ -116,7 +116,7 @@ export const StateContext = ({ children }) => {
         decQty,
         onAdd,
         onRemove,
-        toggleCartItemQuantity
+        toggleCartItemQuantity,
       }}
     >
       {children}

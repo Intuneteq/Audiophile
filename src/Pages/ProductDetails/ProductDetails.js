@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
 import { useStateContext } from "../../context/StateContext";
@@ -14,13 +14,15 @@ const ProductDetails = () => {
     useStateContext();
   const location = useLocation();
   const item = location.state;
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+
+  // const speaker = speakers.filter(item => item.name === true)[Math.floor(Math.random * speaker.length)].map((item) => item);
 
   return (
     <div>
       <div className="detail">
         <div className="detail__back">
-          <Link onClick={() => navigate(-1)}>Go Back</Link>
+          <Link to=''>Go Back</Link>
         </div>
         <div className="detail__content">
           <div className="detail__content-img">
