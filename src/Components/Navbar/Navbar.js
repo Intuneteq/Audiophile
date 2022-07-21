@@ -32,22 +32,22 @@ const Navbar = () => {
               <AiOutlineClose onClick={() => setToggle(false)} />
               <ul>
                 <li>
-                  <Link to ='/'>
+                  <Link to ='/' onClick={() => setToggle(false)} >
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link to="/headphones">
+                  <Link to="/headphones" onClick={() => setToggle(false)} >
                      headphones
                   </Link>
                 </li>
                 <li>
-                  <Link to='/speakers'>
+                  <Link to='/speakers' onClick={() => setToggle(false)} >
                     speakers
                   </Link>
                 </li>
                 <li>
-                  <Link to="earphones">
+                  <Link to="earphones" onClick={() => setToggle(false)} >
                   earphones
                   </Link>
                 </li>

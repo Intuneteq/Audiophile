@@ -26,7 +26,7 @@ const Home = () => {
                 <h6>NEW PRODUCT</h6>
                 <h1>{filtered.name}</h1>
                 <p>
-                  Experience natural, lifelike audio and exceptional
+                  Experience natural, life like audio and exceptional
                   <br />
                   build quality made for the passionate music
                   <br /> enthusiast.
