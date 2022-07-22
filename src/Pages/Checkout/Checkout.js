@@ -3,15 +3,18 @@ import { Link, useNavigate } from "react-router-dom";
 
 import "./Checkout.scss";
 import { Images } from "../../Constants";
+import { urlFor } from "../../lib/client";
+import { useStateContext } from "../../context/StateContext";
 
 const Checkout = () => {
   const navigate = useNavigate();
+  const { cartItems } = useStateContext();
   return (
     <div className="checkout">
-      <div className="back" id="back">
-        <Link to={() => navigate(-1)}>
-          Go Back
-        </Link>
+      <div className="detail__back">
+        <button type="button" onClick={() => navigate(-1)}>
+          Go back
+        </button>
       </div>
       <div className="items">
         <form action="submit">
@@ -87,16 +90,20 @@ const Checkout = () => {
           <h3>SUMMARY</h3>
           <div>
             <div className="checkout__summary-content">
-              <div className="ok">
-                <div className="content-img">
-                  <img src={Images.headphone1} alt="img" />
+              {cartItems.map((item, index) => (
+                <div key={index}>
+                  <div className="ok">
+                    <div className="content-img">
+                      <img src={urlFor(item?.image[0])} alt="img" />
+                    </div>
+                    <div className="content-info">
+                      <h6>{item.name.slice(0, 5)}</h6>
+                      <p>${item.price}</p>
+                    </div>
+                     <p>x{item.quantity}</p>
+                  </div>
                 </div>
-                <div className="content-info">
-                  <h6>XX99 MK II</h6>
-                  <p>$2,999</p>
-                </div>
-              </div>
-              <p>x1</p>
+              ))}
             </div>
             <div className="checkout__summary-pay">
               <div>

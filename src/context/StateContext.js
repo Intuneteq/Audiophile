@@ -45,6 +45,8 @@ export const StateContext = ({ children }) => {
 
   const onRemove = () => {
     setCartItems([]);
+    setTotalQty(0);
+    setTotalPrice(0);
   }
 
   const toggleCartItemQuantity = (id, value) => {

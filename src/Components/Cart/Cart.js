@@ -42,7 +42,7 @@ const Cart = () => {
                   <img src={urlFor(item?.image[0])} alt="img" />
                 </div>
                 <div className="cart__items-content">
-                  <h6>{item.name}</h6>
+                  <h6>{item.name.slice(0, 5)}</h6>
                   <p>${item.price}</p>
                 </div>
                 <div className="cart-count">
@@ -61,7 +61,7 @@ const Cart = () => {
             </div>
             <div className="cart-button">
               <Link to='/checkout'>
-                <button type="button">CHECKOUT</button>
+                <button type="button" onClick={() => setShowCart(false)}>CHECKOUT</button>
               </Link>
             </div>
           </div>

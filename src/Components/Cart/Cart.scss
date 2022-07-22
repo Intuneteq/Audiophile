@@ -3,6 +3,7 @@
     height: 100vh;
     background: rgba(0, 0, 0, 0.4);
     z-index: 5;
+    overflow-y: scroll;
 
     position: fixed;
     top: 0;
@@ -21,29 +22,28 @@
         align-items: flex-start;
         justify-content: center;
         width: 100%;
-        // height: 100vh;
       }
 }
 
 .cart-modal {
     background: white;
-    position: absolute;
+    position: relative;
     width: 377px;
-    right: 11rem;
+    min-height: 488px;
+    left: 61%;
     top: 13.5%;
     border-radius: 8px;
     padding: 2rem;
     z-index: 100;
 
-    @media screen and (max-width: 900px) {
-        width: 70%;
-        position: relative;
-        right: 0;
+    @media screen and (max-width: 1000px) {
+        left: 45%;
         top: 0;
     }
 
     @media screen and (max-width: 550px) {
-        width: 95%;
+        width: 100%;
+        left: 0;
     }
 }
 
@@ -51,6 +51,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 32px;
 
     button {
         border: none;
@@ -59,14 +60,19 @@
         font-size: 15px;
         opacity: 50%;
         cursor: pointer;
+
+        &:hover {
+            color: rgba(216, 125, 74, 1);
+        }
     }
 }
 
 .cart__items {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-bottom: 40px;
+    position: relative;
 }
 
 .cart__items-img {
@@ -75,6 +81,7 @@
     background-color: rgba(241, 241, 241, 1);
     border-radius: 8px;
     padding: 8px;
+    margin-right: 16px;
 
     img {
         width: 90%;
@@ -84,9 +91,10 @@
 }
 
 .cart__items-content {
-    line-height: 1px;
+    line-height: 25px;
     color: rgba(0, 0, 0, 1);
     font-weight: 700;
+    margin-right: 90px;
 
     h6 {
         font-size: 15px;
@@ -105,7 +113,7 @@
 
     background-color: rgba(241, 241, 241, 1);
     width: 96px;
-    padding: 0 7px;
+    padding: 7px 11.5px;
     border-radius: 8px;
 
     p {
@@ -123,13 +131,15 @@
 
 .cart-bottom {
     position: relative;
-    bottom: 0;
+    // bottom: 25px;
+    width: 100%;
 }
 
 .cart-total {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 24px;
 
     p {
         font-weight: 500;
@@ -165,6 +175,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    gap: 32px;
 
     button {
         width: 100%;
