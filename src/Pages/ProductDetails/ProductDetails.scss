@@ -1,7 +1,7 @@
 .detail {
     padding: 0 10rem;
   
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 900px) {
       padding: 0 2.4rem;
     }
   
@@ -45,6 +45,10 @@
     gap: 7rem;
     margin-bottom: 160px;
 
+    @media screen and (max-width: 1200px) {
+        gap: 2rem;
+    }
+
     @media screen and (max-width: 900px) {
         gap: 2rem;
         margin-bottom: 7.5rem;
@@ -72,10 +76,13 @@
         height: 100%
     }
 
+    @media screen and (max-width: 1200px) {
+        padding: 0;
+    }
+
     @media screen and (max-width: 900px) {
         min-width: 281px;
         min-height: 480px;
-        padding: 0;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -96,6 +103,7 @@
         font-size: 14px;
         letter-spacing: 10px;
         line-height: 25px;
+        margin-bottom: 16px;
     }
 
     h1 {
@@ -106,6 +114,7 @@
         line-height: 2.75rem;
         letter-spacing: 1.43px;
         text-transform: uppercase;
+        margin-bottom: 32px;
     }
 
     p {
@@ -115,6 +124,7 @@
         font-size: 15px;
         opacity: 50%;
         line-height: 25px;
+        margin-bottom: 32px;
     }
 
     span {
@@ -122,6 +132,7 @@
         font-weight: 700;
         font-size: 18px;
         letter-spacing: 1.29px;
+        margin-bottom: 47px;
     }
 
     @media screen and (max-width: 900px) {
@@ -180,6 +191,7 @@
         span {
             font-size: 13px;
             font-weight: 700;
+            margin-bottom: 0;
         }
     }
 
@@ -207,7 +219,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    // gap: 2rem;
+    gap: 125px;
 
     @media screen and (max-width: 1200px) {
         flex-direction: column;
@@ -238,6 +250,7 @@
         opacity: 50%;
         color: #000000;
         text-align: left;
+        margin-bottom: 32px;
     }
 
     @media screen and (max-width: 1200px) {
@@ -256,10 +269,11 @@
 
 .detail__feets-box {
     flex: 1;
-    align-items: center;
+    align-items: flex-start;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    gap: 32px;
 
     h2 {
         font-weight: 700;
@@ -285,9 +299,11 @@
     @media screen and (max-width: 900px) {
         flex-direction: row;
         align-items: flex-start;
+        justify-content: space-between;
 
         h2 {
             text-align: left;
+            width: 339px;
         }
     }
 
@@ -377,15 +393,37 @@
 .detail__like {
     text-align: center;
     margin-top: 80px;
+
+    h1 {
+        margin-bottom: 64px;
+    }
 }
 
 .detail__like-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+
+    div {
+        width: 318px;
+    }
+
+    @media screen and (max-width: 1200px) {
+        
+        div {
+            width: 223px;
+        }
+    }
+
     @media screen and (max-width: 900px) {
         
+        div {
+            width: 223px;
+        }
+        
+    }
+
+    @media screen and (max-width: 550px) {
         flex-direction: column;
         gap: 56px;
     }
