@@ -1,8 +1,7 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import "./Checkout.scss";
-import { Images } from "../../Constants";
 import { urlFor } from "../../lib/client";
 import { useStateContext } from "../../context/StateContext";
 
