@@ -1,15 +1,25 @@
 
 .home__section {
-  border-top: 1px solid rgba(255, 255, 255, 1);
-  margin: 0 10rem;
+  padding: 4rem 10rem 4rem;
+  margin-top: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 3rem;
+  width: 100%;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1200px) {
+    padding-top: 2rem;
+  }
+
+  @media screen and (max-width: 900px) {
     flex-direction: column;
     position: relative;
+    padding-top: 2rem;
+    
+  }
+
+  @media screen and (max-width: 550px) {
     border: none;
     padding-top: 2rem;
   }
@@ -28,6 +38,7 @@
     font-weight: 400;
     letter-spacing: 10px;
     opacity: 50%;
+    margin-bottom: 24px;
   }
 
   h1 {
@@ -35,6 +46,8 @@
     font-weight: 700;
     line-height: 58px;
     letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
   }
 
   p {
@@ -42,6 +55,7 @@
     font-weight: 500;
     font-size: 15px;
     line-height: 25px;
+    margin-bottom: 40px;
   }
 
   button {
@@ -59,21 +73,26 @@
     }
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 900px) {
     z-index: 2;
     line-height: 5px;
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     justify-content: center;
     align-items: center;
-    margin-top: 2rem;
+    text-align: center;
+    width: 396px;
+
+    h1 {
+      letter-spacing: 2px;
+    }
   }
 
   @media screen and (max-width: 550px) {
     width: 350px;
-    text-align: center;
+    top: 50%;
 
     h6 {
       font-size: 13px;
@@ -85,7 +104,6 @@
       letter-spacing: 1.29px;
       line-height: 40px;
       font-size: 36px;
-      margin-bottom: 24px;
       text-align: center;
     }
 
@@ -109,13 +127,16 @@
   }
 
   @media screen and (max-width: 1200px) {
+    width: 50rem;
+   height: 40rem;
     img {
-      transform: scale(1.1, 1.1);
+      transform: scale(1.0, 1.0);
     }
   }
 
   @media screen and (max-width: 550px) {
     width: 95vw;
+    height: 34rem;
     img {
       width: 100%;
       transform: scale(1.2, 1.2);

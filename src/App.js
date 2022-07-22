@@ -14,9 +14,9 @@ import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
-    <Layout>
+    <Layout className='App'>
       <Toaster />
-      <div className='App'>
+      <div>
         <Routes>
           <Route path= "/" element={<Home />} />
           <Route path = "/earphones" element={<Earphones />} />

@@ -3,12 +3,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    @media screen and (max-width: 1200px) {
-        padding: 5rem 2.4rem 0;
-    }
+    gap: 20px;
 
     @media screen and (max-width: 900px) {
+        padding: 5rem 2.4rem 0;
         flex-direction: column-reverse;
     }
 
@@ -28,6 +26,7 @@
         line-height: 2.75rem;
         letter-spacing: 1.43px;
         text-align: left;
+        margin-bottom: 32px;
 
         span {
             color: rgba(216, 125, 74, 1);

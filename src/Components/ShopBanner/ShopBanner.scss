@@ -3,7 +3,7 @@
   background: white;
   gap: 30px;
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 900px) {
     padding: 12rem 2.4rem 6rem;
     justify-content: space-between;
   }
@@ -83,7 +83,7 @@
   }
 
   @media screen and (max-width: 1200px) {
-    width: 223px;
+    width: 35%;
     height: 165px;
 
     div {
@@ -109,7 +109,7 @@
   }
 
   @media screen and (max-width: 900px) {
-    width: 223px;
+    width: 35%;
     height: 165px;
 
     div {
@@ -129,7 +129,7 @@
 
     h4 {
       position: absolute;
-      top: 50%;
+      top: 55%;
       left: 50%;
       transform: translate(-50%, -50%);
 
