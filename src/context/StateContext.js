@@ -43,6 +43,11 @@ export const StateContext = ({ children }) => {
     toast.success(`${qty} ${product.name} added to cart`);
   };
 
+  const grandTotal = () => {
+    return totalPrice + 50;
+  }
+  console.log(grandTotal, 'grandtoal');
+
   const onRemove = () => {
     setCartItems([]);
     setTotalQty(0);
@@ -119,6 +124,7 @@ export const StateContext = ({ children }) => {
         onAdd,
         onRemove,
         toggleCartItemQuantity,
+        grandTotal,
       }}
     >
       {children}

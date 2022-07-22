@@ -15,7 +15,7 @@ const Cart = () => {
     useStateContext();
   const cartRef = useRef();
   return (
-    <div className="cart">
+    <div className="cart" onClick={() => setShowCart(false)}>
       <div className="cart-modal" ref={cartRef}>
         <div className="cart-top">
           <h3>

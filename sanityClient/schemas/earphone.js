@@ -51,6 +51,11 @@ export default {
             title: 'Box',
             type: 'array',
             of: [{ type: 'string'}],
+        },
+        {
+            name: 'id',
+            title: 'Id',
+            type: 'number',
         }
     ]
 }
