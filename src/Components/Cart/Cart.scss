@@ -68,9 +68,13 @@
 }
 
 .cart-container {
-    max-height: 300px;
+    max-height: 280px;
     overflow-y: scroll;
-    margin-bottom: 10px;
+    // overflow: hidden;
+}
+
+.cart-container::-webkit-scrollbar {
+    display: none;
 }
 
 .cart__items {
@@ -150,11 +154,11 @@
 .cart-bottom {
     position: absolute;
     width: 100%;
-    bottom: 30px;
+    bottom: 20px;
     left: 0;
     right: 0;
-    transform: translateX(10%);
-    width: 85%;
+    transform: translateX(11.5%);
+    width: 81.5%;
 }
 
 .cart-total {
