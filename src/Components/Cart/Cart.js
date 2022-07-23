@@ -15,7 +15,7 @@ const Cart = () => {
     useStateContext();
   const cartRef = useRef();
   return (
-    <div className="cart" onClick={() => setShowCart(false)}>
+    <div className="cart">
       <div className="cart-modal" ref={cartRef}>
         <div className="cart-top">
           <h3>
@@ -34,6 +34,7 @@ const Cart = () => {
             </Link>
           </div>
         )}
+        <div className="cart-container">
         {cartItems.length >= 1 &&
           cartItems.map((item, index) => (
             <div key={index}>
@@ -53,6 +54,7 @@ const Cart = () => {
               </div>
             </div>
           ))}
+        </div>
         {cartItems.length >= 1 && (
           <div className="cart-bottom">
             <div className="cart-total">
