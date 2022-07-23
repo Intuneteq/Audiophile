@@ -13,6 +13,7 @@ export const StateContext = ({ children }) => {
   const [earphones, setEarphones] = useState([]);
   const [headphones, setHeadphones] = useState([]);
   const [speakers, setSpeakers] = useState([]);
+  const [grandTotal, setGrandTotal] = useState(50);
 
   let foundProduct;
 
@@ -43,10 +44,6 @@ export const StateContext = ({ children }) => {
     toast.success(`${qty} ${product.name} added to cart`);
   };
 
-  const grandTotal = () => {
-    return totalPrice + 50;
-  }
-  console.log(grandTotal, 'grandtoal');
 
   const onRemove = () => {
     setCartItems([]);
@@ -89,6 +86,16 @@ export const StateContext = ({ children }) => {
     });
   };
 
+  const addGrandTotal = () => {
+    if(totalPrice === 0) {
+      setGrandTotal(grandTotal)
+    } else {
+      setGrandTotal((prevTotal) => {
+        return prevTotal + totalPrice
+      })
+    }
+  }
+
   useEffect(() => {
     const earphoneQuery = '*[_type == "earphone"]';
     const headphoneQuery = '*[_type == "headphone"]';
@@ -125,6 +132,7 @@ export const StateContext = ({ children }) => {
         onRemove,
         toggleCartItemQuantity,
         grandTotal,
+        addGrandTotal,
       }}
     >
       {children}
