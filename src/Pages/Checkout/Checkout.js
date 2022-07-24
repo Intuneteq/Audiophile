@@ -60,7 +60,7 @@ const Checkout = () => {
             <div className="checkout__form-sec">
               <h6>PAYMENT DETAILS</h6>
               <div className="form-radio">
-                <p>Payment Method</p>
+                <p id="payment-detail">Payment Method</p>
                 <div className="control">
                   <div className="radio">
                     <input type="radio" name="payment" />

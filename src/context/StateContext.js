@@ -14,6 +14,7 @@ export const StateContext = ({ children }) => {
   const [headphones, setHeadphones] = useState([]);
   const [speakers, setSpeakers] = useState([]);
   const [grandTotal, setGrandTotal] = useState(50);
+  const [loading, setLoading] = useState(true);
 
   let foundProduct;
 
@@ -108,14 +109,17 @@ export const StateContext = ({ children }) => {
     const speakerQuery = '*[_type == "speaker"]';
 
     client.fetch(earphoneQuery).then((earphoneData) => {
+      setLoading(false);
       setEarphones(earphoneData);
     });
 
     client.fetch(headphoneQuery).then((headphoneData) => {
+      setLoading(false);
       setHeadphones(headphoneData);
     });
 
     client.fetch(speakerQuery).then((speakerData) => {
+      setLoading(false);
       setSpeakers(speakerData);
     });
   }, []);
@@ -138,6 +142,7 @@ export const StateContext = ({ children }) => {
         onRemove,
         toggleCartItemQuantity,
         grandTotal,
+        loading,
       }}
     >
       {children}

@@ -10,6 +10,7 @@ import Home from './Pages/Home/Home';
 import ProductDetails from './Pages/ProductDetails/ProductDetails';
 import Speakers from './Pages/Speakers';
 import { Toaster } from 'react-hot-toast';
+import Error from './Constants/Error/Error';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path = "/speakers" element={<Speakers />} />
           <Route path = "/product-details/:slug" element={<ProductDetails />} />
           <Route path = "/checkout" element={<Checkout />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </div>
     </Layout>

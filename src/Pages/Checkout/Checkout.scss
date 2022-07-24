@@ -29,6 +29,12 @@
   margin-bottom: 53px;
 }
 
+#payment-detail {
+  @media screen and (max-width: 550px) {
+    margin-bottom: 17px;
+  }
+}
+
 form {
   width: 45.625rem;
   padding: 3rem;
@@ -58,6 +64,13 @@ form {
     h1 {
       font-size: 28px;
       letter-spacing: 1px;
+      margin-bottom: 41px;
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    h1 {
+      margin-bottom: 32px;
     }
   }
 }
@@ -199,16 +212,11 @@ form {
     height: 90%;
     object-fit: contain;
   }
-
-  @media screen and (max-width: 900px) {
-    margin-right: 16px;
-  }
 }
 
 .content-info {
   line-height: 25px;
   text-align: left;
-  // margin-right: 110px;
   width: 75px;
 
   h6 {
@@ -221,14 +229,6 @@ form {
     color: rgba(0, 0, 0, 0.5);
     font-weight: 700;
     font-size: 14px;
-  }
-
-  @media screen and (max-width: 900px) {
-    margin-right: 485px;
-  }
-
-  @media screen and (max-width: 550px) {
-    margin-right: 140px;
   }
 }
 
