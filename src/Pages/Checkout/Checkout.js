@@ -7,7 +7,7 @@ import { useStateContext } from "../../context/StateContext";
 
 const Checkout = () => {
   const navigate = useNavigate();
-  const { cartItems, totalPrice, addGrandTotal } = useStateContext();
+  const { cartItems, totalPrice, grandTotal } = useStateContext();
   return (
     <div className="checkout">
       <div className="detail__back">
@@ -120,7 +120,7 @@ const Checkout = () => {
             </div>
             <div className="summary-total">
               <p>GRAND TOTAL</p>
-              <span>${addGrandTotal}</span>
+              <span>${grandTotal}</span>
             </div>
             <div className="summary-button">
               <button>CONTINUE & PAY</button>

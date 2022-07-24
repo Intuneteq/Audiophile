@@ -26,6 +26,7 @@ export const StateContext = ({ children }) => {
       (prevTotalPrice) => prevTotalPrice + product.price * quantity
     );
     setTotalQty((prevTotalQty) => prevTotalQty + quantity);
+    setGrandTotal((prevGrandTotal) => prevGrandTotal + product.price * quantity)
 
     if (checkProductInCart) {
       const updatedCartItems = cartItems.map((cartProduct) => {
@@ -91,15 +92,8 @@ export const StateContext = ({ children }) => {
     });
   };
 
-  const addGrandTotal = () => {
-    if(totalPrice === 0) {
-      setGrandTotal(grandTotal)
-    } else {
-      setGrandTotal((prevTotal) => {
-        return prevTotal + totalPrice
-      })
-    }
-  }
+  
+
 
   useEffect(() => {
     const earphoneQuery = '*[_type == "earphone"]';
@@ -136,8 +130,7 @@ export const StateContext = ({ children }) => {
         onAdd,
         onRemove,
         toggleCartItemQuantity,
-        grandTotal,
-        addGrandTotal,
+        grandTotal
       }}
     >
       {children}
