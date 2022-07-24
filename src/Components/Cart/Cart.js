@@ -11,8 +11,14 @@ import { urlFor } from "../../lib/client";
 import "./Cart.scss";
 
 const Cart = () => {
-  const { toggleCartItemQuantity, totalQty, cartItems, totalPrice, setShowCart, onRemove } =
-    useStateContext();
+  const {
+    toggleCartItemQuantity,
+    totalQty,
+    cartItems,
+    totalPrice,
+    setShowCart,
+    onRemove,
+  } = useStateContext();
   const cartRef = useRef();
   return (
     <div className="cart">
@@ -21,7 +27,11 @@ const Cart = () => {
           <h3>
             CART <span>({totalQty})</span>
           </h3>
-          {cartItems.length >= 1 && <button type="button" onClick={onRemove}>Remove all</button>}
+          {cartItems.length >= 1 && (
+            <button type="button" onClick={onRemove}>
+              Remove all
+            </button>
+          )}
         </div>
         {cartItems.length < 1 && (
           <div className="empty-cart">
@@ -35,25 +45,29 @@ const Cart = () => {
           </div>
         )}
         <div className="cart-container">
-        {cartItems.length >= 1 &&
-          cartItems.map((item, index) => (
-            <div key={index}>
-              <div className="cart__items">
-                <div className="cart__items-img app__flex">
-                  <img src={urlFor(item?.image[0])} alt="img" />
-                </div>
-                <div className="cart__items-content">
-                  <h6>{item.name.slice(0, 5)}</h6>
-                  <p>${item.price}</p>
-                </div>
-                <div className="cart-count">
-                  <AiOutlineMinus onClick={()=>toggleCartItemQuantity(item._id, 'dec')} />
-                  <p>{item.quantity}</p>
-                  <AiOutlinePlus onClick={()=>toggleCartItemQuantity(item._id, 'inc')} />
+          {cartItems.length >= 1 &&
+            cartItems.map((item, index) => (
+              <div key={index}>
+                <div className="cart__items">
+                  <div className="cart__items-img app__flex">
+                    <img src={urlFor(item?.image[0])} alt="img" />
+                  </div>
+                  <div className="cart__items-content">
+                    <h6>{item.name.slice(0, 5)}</h6>
+                    <p>${item.price}</p>
+                  </div>
+                  <div className="cart-count">
+                    <AiOutlineMinus
+                      onClick={() => toggleCartItemQuantity(item._id, "dec")}
+                    />
+                    <p>{item.quantity}</p>
+                    <AiOutlinePlus
+                      onClick={() => toggleCartItemQuantity(item._id, "inc")}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
         {cartItems.length >= 1 && (
           <div className="cart-bottom">
@@ -62,8 +76,10 @@ const Cart = () => {
               <span>${totalPrice}</span>
             </div>
             <div className="cart-button">
-              <Link to='/checkout'>
-                <button type="button" onClick={() => setShowCart(false)}>CHECKOUT</button>
+              <Link to="/checkout">
+                <button type="button" onClick={() => setShowCart(false)}>
+                  CHECKOUT
+                </button>
               </Link>
             </div>
           </div>

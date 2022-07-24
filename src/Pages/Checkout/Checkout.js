@@ -91,15 +91,17 @@ const Checkout = () => {
             <div className="checkout__summary-content">
               {cartItems.map((item, index) => (
                 <div key={index}>
-                  <div className="ok">
-                    <div className="content-img">
-                      <img src={urlFor(item?.image[0])} alt="img" />
+                  <div className="content-container">
+                    <div className="container-item">
+                      <div className="content-img">
+                        <img src={urlFor(item?.image[0])} alt="img" />
+                      </div>
+                      <div className="content-info">
+                        <h6>{item.name.slice(0, 5)}</h6>
+                        <p>${item.price}</p>
+                      </div>
                     </div>
-                    <div className="content-info">
-                      <h6>{item.name.slice(0, 5)}</h6>
-                      <p>${item.price}</p>
-                    </div>
-                     <p>x{item.quantity}</p>
+                    <p>x{item.quantity}</p>
                   </div>
                 </div>
               ))}

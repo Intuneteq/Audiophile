@@ -16,12 +16,13 @@ const ProductDetails = () => {
   const item = location.state;
   const navigate = useNavigate();
 
-
   return (
     <div>
       <div className="detail">
         <div className="detail__back">
-          <button type="button" onClick={()=>navigate(-1)}>Go back</button>
+          <button type="button" onClick={() => navigate(-1)}>
+            Go back
+          </button>
         </div>
         <div className="detail__content">
           <div className="detail__content-img">
@@ -78,7 +79,7 @@ const ProductDetails = () => {
                 .sort(() => Math.random() - Math.random())
                 .slice(0, 1)
                 .map((data) => (
-                  <MayLike data={data} key={data._id}/>
+                  <MayLike data={data} key={data._id} />
                 ))}
             </div>
             <div>

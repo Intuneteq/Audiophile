@@ -193,6 +193,11 @@
         font-weight: 700;
         font-size: 13px;
         letter-spacing: 1px;
+        cursor: pointer; 
+
+        &:hover {
+            background-color: rgba(251, 175, 133, 1);
+        }
     }
 }
 
@@ -219,5 +224,10 @@
         font-weight: 700;
         font-size: 13px;
         letter-spacing: 1px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(251, 175, 133, 1);
+        }
     }
 }

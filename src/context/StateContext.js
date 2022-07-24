@@ -26,7 +26,9 @@ export const StateContext = ({ children }) => {
       (prevTotalPrice) => prevTotalPrice + product.price * quantity
     );
     setTotalQty((prevTotalQty) => prevTotalQty + quantity);
-    setGrandTotal((prevGrandTotal) => prevGrandTotal + product.price * quantity)
+    setGrandTotal(
+      (prevGrandTotal) => prevGrandTotal + product.price * quantity
+    );
 
     if (checkProductInCart) {
       const updatedCartItems = cartItems.map((cartProduct) => {
@@ -34,10 +36,10 @@ export const StateContext = ({ children }) => {
           return {
             ...cartProduct,
             quantity: cartProduct.quantity + quantity,
-          }
-          return cartProduct
-        });
-        setCartItems(updatedCartItems);
+          };
+        return cartProduct;
+      });
+      setCartItems(updatedCartItems);
     } else {
       product.quantity = quantity;
 
@@ -46,12 +48,12 @@ export const StateContext = ({ children }) => {
     toast.success(`${qty} ${product.name} added to cart`);
   };
 
-
   const onRemove = () => {
     setCartItems([]);
     setTotalQty(0);
     setTotalPrice(0);
-  }
+    setGrandTotal(50);
+  };
 
   const toggleCartItemQuantity = (id, value) => {
     foundProduct = cartItems.find((item) => item._id === id);
@@ -63,9 +65,13 @@ export const StateContext = ({ children }) => {
         ...newCartItems,
         { ...foundProduct, quantity: foundProduct.quantity + 1 },
       ]);
-      newCartItems.splice(index, 0, { ...foundProduct, quantity: foundProduct.quantity + 1 });
+      newCartItems.splice(index, 0, {
+        ...foundProduct,
+        quantity: foundProduct.quantity + 1,
+      });
       setCartItems(newCartItems);
       setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price);
+      setGrandTotal((prevGrandTotal) => prevGrandTotal + foundProduct.price);
       setTotalQty((prevTotalQty) => prevTotalQty + 1);
     } else if (value === "dec") {
       if (foundProduct.quantity > 1) {
@@ -73,9 +79,13 @@ export const StateContext = ({ children }) => {
           ...newCartItems,
           { ...foundProduct, quantity: foundProduct.quantity - 1 },
         ]);
-        newCartItems.splice(index, 0, { ...foundProduct, quantity: foundProduct.quantity - 1 });
+        newCartItems.splice(index, 0, {
+          ...foundProduct,
+          quantity: foundProduct.quantity - 1,
+        });
         setCartItems(newCartItems);
         setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price);
+        setGrandTotal((prevGrandTotal) => prevGrandTotal - foundProduct.price);
         setTotalQty((prevTotalQty) => prevTotalQty - 1);
       }
     }
@@ -91,9 +101,6 @@ export const StateContext = ({ children }) => {
       else return prevQty - 1;
     });
   };
-
-  
-
 
   useEffect(() => {
     const earphoneQuery = '*[_type == "earphone"]';
@@ -130,7 +137,7 @@ export const StateContext = ({ children }) => {
         onAdd,
         onRemove,
         toggleCartItemQuantity,
-        grandTotal
+        grandTotal,
       }}
     >
       {children}
