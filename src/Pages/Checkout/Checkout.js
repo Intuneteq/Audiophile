@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { PaystackButton } from 'react-paystack';
 
-import { Images } from '../../Constants';
+import { Images } from "../../Constants";
 import "./Checkout.scss";
 import { urlFor } from "../../lib/client";
 import { useStateContext } from "../../context/StateContext";
@@ -13,31 +14,53 @@ const Checkout = () => {
   const [eMoney, setEMoney] = useState(false);
   const [payStack, setPayStack] = useState(false);
 
-  // const publicKey = "pk_test_bbba1a1911f3c31b9aa724a268504cd10e139815"
-  // const amount = 1000000 // Remember, set in kobo!
-  // const [email, setEmail] = useState("")
-  // const [name, setName] = useState("")
-  // const [phone, setPhone] = useState("")
+  const publicKey = "pk_test_bbba1a1911f3c31b9aa724a268504cd10e139815";
+  // const amount = 1000000; // Remember, set in kobo!
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
 
-  
+  let amount = grandTotal * 1000
+
+  const componentProps = {
+    email,
+    amount,
+    metadata: {
+      name,
+      phone,
+    },
+    publicKey,
+    text: "PAY WITH PAYSTACK",
+    onSuccess: () => {
+      setName("")
+      setEmail("")
+      setPhone("")
+      alert("Thanks for doing business with us! Come back soon!!")
+      navigate('/')
+    },
+    onClose: () => alert("Wait! Don't leave :("),
+  }
+
+  console.log(grandTotal, 'grand');
+  console.log('amount', amount);
 
   const handleEMoney = () => {
-      setEMoney(true);
-      setOnDelivery(false);
-      setPayStack(false);
-  }
+    setEMoney(true);
+    setOnDelivery(false);
+    setPayStack(false);
+  };
 
   const handleDelivery = () => {
     setOnDelivery(true);
     setEMoney(false);
     setPayStack(false);
-  }
+  };
 
   const handlePayStack = (e) => {
     setPayStack(true);
     setOnDelivery(false);
     setEMoney(false);
-  }
+  };
   return (
     <div className="checkout">
       <div className="detail__back">
@@ -54,16 +77,31 @@ const Checkout = () => {
               <div className="form-dist">
                 <div className="control">
                   <label>Name</label>
-                  <input type="text" placeholder="Alexei Ward" />
+                  <input
+                    type="text"
+                    placeholder="Alexei Ward"
+                    id="name"
+                    onChange={(e) => setName(e.target.value)}
+                  />
                 </div>
                 <div className="control">
                   <label>Email Address</label>
-                  <input type="email" placeholder="alexei@mail.com" />
+                  <input
+                    type="email"
+                    placeholder="alexei@mail.com"
+                    id="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
                 </div>
               </div>
               <div className="control">
                 <label>Phone Number</label>
-                <input type="phone Number" placeholder="+1 202-555-0136" />
+                <input
+                  type="phone Number"
+                  placeholder="+1 202-555-0136"
+                  id="phone"
+                  onChange={(e) => setPhone(e.target.value)}
+                />
               </div>
             </div>
             <div className="checkout__form-sec">
@@ -93,40 +131,57 @@ const Checkout = () => {
                 <p id="payment-detail">Payment Method</p>
                 <div className="control">
                   <div className="radio">
-                    <input type="radio" name="payment" onChange={handleEMoney} />
+                    <input
+                      type="radio"
+                      name="payment"
+                      onChange={handleEMoney}
+                    />
                     <label>e-Money</label>
                   </div>
                   <div className="radio">
-                    <input type="radio" name="payment" onChange={handlePayStack} />
+                    <input
+                      type="radio"
+                      name="payment"
+                      onChange={handlePayStack}
+                    />
                     <label>Pay with Paystack</label>
                   </div>
                   <div className="radio">
-                    <input type="radio" name="payment" onChange={handleDelivery} />
+                    <input
+                      type="radio"
+                      name="payment"
+                      onChange={handleDelivery}
+                    />
                     <label>Cash on Delivery</label>
                   </div>
+                  
                 </div>
               </div>
               {eMoney && (
                 <div className="form-dist">
-                <div className="control">
-                  <label>e-Money Number</label>
-                  <input type="number" placeholder="238521993" />
+                  <div className="control">
+                    <label>e-Money Number</label>
+                    <input type="number" placeholder="238521993" />
+                  </div>
+                  <div className="control">
+                    <label>e-Money PIN</label>
+                    <input type="number" placeholder="6891" />
+                  </div>
                 </div>
-                <div className="control">
-                  <label>e-Money PIN</label>
-                  <input type="number" placeholder="6891" />
-                </div>
-              </div>
               )}
               {onDelivery && (
                 <div className="delivery">
                   <div>
                     <img src={Images.shape} alt="shape" />
                   </div>
-                  <p>The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled.</p>
+                  <p>
+                    The ‘Cash on Delivery’ option enables you to pay in cash
+                    when our delivery courier arrives at your residence. Just
+                    make sure your address is correct so that your order will
+                    not be cancelled.
+                  </p>
                 </div>
               )}
-              {payStack && (<p>incoming</p>)}
             </div>
           </div>
         </form>
@@ -170,7 +225,11 @@ const Checkout = () => {
               <span>${grandTotal}</span>
             </div>
             <div className="summary-button">
-              <button>CONTINUE & PAY</button>
+                {payStack ? (
+                  <PaystackButton {...componentProps} />
+                ) : (
+                  <button type="button">CONTINUE & PAY</button>
+                )}
             </div>
           </div>
         </div>
