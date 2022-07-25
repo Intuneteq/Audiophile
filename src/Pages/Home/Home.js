@@ -55,7 +55,6 @@ const Home = () => {
       </div>
       <div className="margin">
         <AudioAd />
-        <isLoading />
       </div>
     </div>
   );
