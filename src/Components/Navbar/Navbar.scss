@@ -26,66 +26,45 @@ nav {
     height: 100%;
   }
 
-  div {
+  .toggle-modal {
+    background-color: white;
     position: fixed;
-    top: 0;
+    top: 10%;
     left: 0;
+    right: 0;
     bottom: 0;
-    z-index: 5;
+    width: 100%;
+    height: 75vh;
+    border-bottom-left-radius:8px;
+    border-bottom-right-radius: 8px;
+    overflow-y: scroll;
+    animation: toggleDown;
+    animation-delay: 0.1s;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+  }
 
-    width: 70%;
-    height: 100vh;
-
+  .menu-container {
+    
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    background: rgba(14, 14, 14, 1);
-
-    svg {
-      width: 30px;
-      height: 30px;
-      margin: 1rem;
-      font-weight: 700;
-    }
-
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-
-      li {
-        list-style: none;
-        margin: 2rem 1rem;
-
-        cursor: pointer;
-
-        &:hover {
-          
-          background: rgba(225, 225, 225, 0.5);
-        }
-
-        a {
-          text-decoration: none;
-          text-transform: uppercase;
-
-          color: rgba(255, 255, 255, 1);
-          font-weight: 700;
-          font-size: 1rem;
-          transition: all 0.3s ease-in-out;
-
-          &:hover {
-            color: rgba(216, 125, 74, 1);
-          }
-        }
-      }
-    }
+    gap: 100px;
+    z-index: 5;
+    padding: 8rem 24px;
+    width: 100%;
   }
 
   @media screen and (min-width: 900px) {
     display: none;
+  }
+}
+
+.spa {
+  svg {
+    top: 0px !important;
   }
 }
 
@@ -154,5 +133,16 @@ nav {
   svg {
     width: 25px;
     height: 25px;
+  }
+}
+
+@keyframes toggleDown {
+  0% {
+    transform: translateY(-100%);
+    visibility: hidden;
+  }
+  100% {
+    transform: translateY(0);
+    visibility: visible;
   }
 }

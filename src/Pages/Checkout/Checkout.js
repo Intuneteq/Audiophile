@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { Images } from '../../Constants';
 import "./Checkout.scss";
 import { urlFor } from "../../lib/client";
 import { useStateContext } from "../../context/StateContext";
@@ -8,6 +9,29 @@ import { useStateContext } from "../../context/StateContext";
 const Checkout = () => {
   const navigate = useNavigate();
   const { cartItems, totalPrice, grandTotal } = useStateContext();
+  const [onDelivery, setOnDelivery] = useState(false);
+  const [eMoney, setEMoney] = useState(false);
+  const [payStack, setPayStack] = useState(false);
+
+  
+
+  const handleEMoney = () => {
+      setEMoney(true);
+      setOnDelivery(false);
+      setPayStack(false);
+  }
+
+  const handleDelivery = () => {
+    setOnDelivery(true);
+    setEMoney(false);
+    setPayStack(false);
+  }
+
+  const handlePayStack = (e) => {
+    setPayStack(true);
+    setOnDelivery(false);
+    setEMoney(false);
+  }
   return (
     <div className="checkout">
       <div className="detail__back">
@@ -57,22 +81,27 @@ const Checkout = () => {
                 <input type="text" placeholder="United States" />
               </div>
             </div>
-            <div className="checkout__form-sec">
+            <div className="checkout__form-sec" id="form-sec">
               <h6>PAYMENT DETAILS</h6>
               <div className="form-radio">
                 <p id="payment-detail">Payment Method</p>
                 <div className="control">
                   <div className="radio">
-                    <input type="radio" name="payment" />
+                    <input type="radio" name="payment" onChange={handleEMoney} />
                     <label>e-Money</label>
                   </div>
                   <div className="radio">
-                    <input type="radio" name="payment" />
+                    <input type="radio" name="payment" onChange={handlePayStack} />
+                    <label>Pay with Paystack</label>
+                  </div>
+                  <div className="radio">
+                    <input type="radio" name="payment" onChange={handleDelivery} />
                     <label>Cash on Delivery</label>
                   </div>
                 </div>
               </div>
-              <div className="form-dist">
+              {eMoney && (
+                <div className="form-dist">
                 <div className="control">
                   <label>e-Money Number</label>
                   <input type="number" placeholder="238521993" />
@@ -82,6 +111,16 @@ const Checkout = () => {
                   <input type="number" placeholder="6891" />
                 </div>
               </div>
+              )}
+              {onDelivery && (
+                <div className="delivery">
+                  <div>
+                    <img src={Images.shape} alt="shape" />
+                  </div>
+                  <p>The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled.</p>
+                </div>
+              )}
+              {payStack && (<p>incoming</p>)}
             </div>
           </div>
         </form>

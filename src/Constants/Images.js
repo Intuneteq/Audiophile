@@ -21,6 +21,7 @@ import product1 from '../Assets/product1.png';
 import product2 from '../Assets/product2.png';
 import product3 from '../Assets/product3.svg';
 import homephone from '../Assets/Bitmapcopy.png';
+import shape from '../Assets/Shape.svg';
 
 const Images = {
     audiophile,
@@ -45,7 +46,8 @@ const Images = {
     product1,
     product2,
     product3,
-    homephone
+    homephone,
+    shape
 };
 
 export default Images;

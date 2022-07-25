@@ -36,16 +36,17 @@
 }
 
 form {
-  width: 45.625rem;
+  min-width: 45.625rem;
   padding: 3rem;
   background-color: white;
   border-radius: 8px;
 
   h1 {
+    color: #000;
     font-weight: 700;
     font-size: 32px;
     letter-spacing: 1.14px;
-    color: #000;
+    margin-bottom: 41px;
   }
 
   h6 {
@@ -153,9 +154,18 @@ form {
   align-items: center;
   justify-content: flex-start;
   gap: 16px;
+  cursor: pointer;
 
   label {
     margin-top: 10px;
+  }
+
+  input {
+    cursor: pointer;
+  }
+
+  &:hover {
+    border: 1px solid rgba(216, 125, 74, 1);
   }
 }
 
@@ -309,4 +319,33 @@ form {
       background-color: #fbaf85;
     }
   }
+}
+
+.delivery {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+
+  div {
+    width: 48px;
+    height: 48px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  p {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 25px;
+    width: 554px;
+  }
+}
+
+#form-sec {
+  margin-bottom: 48px;
 }

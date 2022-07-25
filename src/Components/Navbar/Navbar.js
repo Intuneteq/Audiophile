@@ -3,55 +3,76 @@ import { Link } from "react-router-dom";
 import {
   AiOutlineShoppingCart,
   AiOutlineMenu,
-  AiOutlineClose,
+  // AiOutlineClose,
 } from "react-icons/ai";
+import { IoIosArrowForward } from "react-icons/io";
 
 import "./Navbar.scss";
 import { Images } from "../../Constants";
-import { useStateContext } from '../../context/StateContext';
+import { useStateContext } from "../../context/StateContext";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const { showCart, setShowCart } = useStateContext();
 
   const handleCart = () => {
-    if(!showCart){
-      setShowCart(true)
+    if (!showCart) {
+      setShowCart(true);
     } else {
       setShowCart(false);
-    } 
-  }
+    }
+  };
+
+  const handleMenu = () => {
+    if (!toggle) {
+      setToggle(true);
+    } else {
+      setToggle(false);
+    }
+  };
 
   return (
     <nav>
       <div className="nav__item">
         <div className="nav__item-menu">
-          <AiOutlineMenu onClick={() => setToggle(true)} />
+          <AiOutlineMenu onClick={handleMenu} />
           {toggle && (
-            <div>
-              <AiOutlineClose onClick={() => setToggle(false)} />
-              <ul>
-                <li>
-                  <Link to ='/' onClick={() => setToggle(false)} >
-                    Home
+            <div className="toggle-modal">
+              <div className="menu-container">
+                <div className="Position spa">
+                  <div>
+                    <img src={Images.headphone} alt="headphone" />
+                  </div>
+                  <h4>HEADPHONES</h4>
+                  <Link to="/headphones">
+                    <p>
+                      <span>SHOP</span> <IoIosArrowForward />
+                    </p>
                   </Link>
-                </li>
-                <li>
-                  <Link to="/headphones" onClick={() => setToggle(false)} >
-                     headphones
+                </div>
+                <div className="Position spa">
+                  <div>
+                    <img src={Images.speaker} alt="speaker" />
+                  </div>
+                  <h4>SPEAKERS</h4>
+                  <Link to="/speakers">
+                    <p>
+                      <span>SHOP</span> <IoIosArrowForward />
+                    </p>
                   </Link>
-                </li>
-                <li>
-                  <Link to='/speakers' onClick={() => setToggle(false)} >
-                    speakers
+                </div>
+                <div className="Position spa">
+                  <div>
+                    <img src={Images.earphone} alt="earphone" />
+                  </div>
+                  <h4>EARPHONES</h4>
+                  <Link to="/earphones">
+                    <p>
+                      <span>SHOP</span> <IoIosArrowForward />
+                    </p>
                   </Link>
-                </li>
-                <li>
-                  <Link to="earphones" onClick={() => setToggle(false)} >
-                  earphones
-                  </Link>
-                </li>
-              </ul>
+                </div>
+              </div>
             </div>
           )}
         </div>
@@ -59,26 +80,18 @@ const Navbar = () => {
           <img src={Images.audiophile} alt="logo" />
         </div>
         <ul className="nav__item-links app__flex">
-        <li>
-                  <Link to ='/'>
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/headphones">
-                     headphones
-                  </Link>
-                </li>
-                <li>
-                  <Link to='/speakers'>
-                    speakers
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/earphones">
-                  earphones
-                  </Link>
-                </li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/headphones">headphones</Link>
+          </li>
+          <li>
+            <Link to="/speakers">speakers</Link>
+          </li>
+          <li>
+            <Link to="/earphones">earphones</Link>
+          </li>
         </ul>
         <div className="nav__cart">
           <AiOutlineShoppingCart onClick={handleCart} />
