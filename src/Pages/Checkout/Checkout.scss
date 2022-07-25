@@ -59,7 +59,7 @@ form {
   }
 
   @media screen and (max-width: 900px) {
-    width: 100%;
+    min-width: 100%;
     padding: 1.75rem;
 
     h1 {
@@ -70,6 +70,7 @@ form {
   }
 
   @media screen and (max-width: 550px) {
+    min-width: 100%;
     h1 {
       margin-bottom: 32px;
     }
