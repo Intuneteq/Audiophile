@@ -345,6 +345,13 @@ form {
     line-height: 25px;
     width: 554px;
   }
+
+  @media screen and (max-width: 900px) {
+    p {
+      width: 100%;
+      font-size: 13px;
+    }
+  }
 }
 
 #form-sec {
