@@ -13,6 +13,12 @@ const Checkout = () => {
   const [eMoney, setEMoney] = useState(false);
   const [payStack, setPayStack] = useState(false);
 
+  // const publicKey = "pk_test_bbba1a1911f3c31b9aa724a268504cd10e139815"
+  // const amount = 1000000 // Remember, set in kobo!
+  // const [email, setEmail] = useState("")
+  // const [name, setName] = useState("")
+  // const [phone, setPhone] = useState("")
+
   
 
   const handleEMoney = () => {
