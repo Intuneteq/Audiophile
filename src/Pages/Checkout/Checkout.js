@@ -245,7 +245,7 @@ const Checkout = () => {
             <div className="summary-button">
                 {payStack ? (
                   // <PaystackButton {...componentProps} />
-                  <button type="submit" onClick={payWithPayStack}>Pay with paystack</button>
+                  <button type="submit" onClick={payWithPayStack}>PAY WITH PAYSTACK</button>
                 ) : (
                   <button type="button">CONTINUE & PAY</button>
                 )}
