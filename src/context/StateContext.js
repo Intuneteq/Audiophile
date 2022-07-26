@@ -15,6 +15,7 @@ export const StateContext = ({ children }) => {
   const [speakers, setSpeakers] = useState([]);
   const [grandTotal, setGrandTotal] = useState(50);
   const [loading, setLoading] = useState(true);
+  const [showCheckOutModal, setShowCheckOutModal] = useState(false);
 
   let foundProduct;
 
@@ -143,6 +144,8 @@ export const StateContext = ({ children }) => {
         toggleCartItemQuantity,
         grandTotal,
         loading,
+        showCheckOutModal,
+        setShowCheckOutModal,
       }}
     >
       {children}

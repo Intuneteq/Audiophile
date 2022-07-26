@@ -5,7 +5,6 @@ import "./MayLike.scss";
 import { urlFor } from "../../lib/client";
 
 const MayLike = ({ data }) => {
-
   return (
     <div className="like">
       <div className="like-img">

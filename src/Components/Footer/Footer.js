@@ -17,18 +17,10 @@ const Footer = () => {
           <img src={Images.audiophilefooter} alt="footer" />
         </div>
         <div className="footer__content-links">
-          <Link to="/">
-            Home
-          </Link>
-          <Link to="/headphones">
-            HEADPHONES
-          </Link>
-          <Link to="/speakers">
-            SPEAKERS
-          </Link>
-          <Link to="/earphones">
-            EARPHONES
-          </Link>
+          <Link to="/">Home</Link>
+          <Link to="/headphones">HEADPHONES</Link>
+          <Link to="/speakers">SPEAKERS</Link>
+          <Link to="/earphones">EARPHONES</Link>
         </div>
       </div>
       <div className="footer_page">

@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  AiOutlineShoppingCart,
-  AiOutlineMenu,
-  // AiOutlineClose,
-} from "react-icons/ai";
+import { motion } from "framer-motion";
+import { AiOutlineShoppingCart, AiOutlineMenu } from "react-icons/ai";
 import { IoIosArrowForward } from "react-icons/io";
 
 import "./Navbar.scss";
@@ -37,14 +34,22 @@ const Navbar = () => {
         <div className="nav__item-menu">
           <AiOutlineMenu onClick={handleMenu} />
           {toggle && (
-            <div className="toggle-modal">
+            <motion.div
+              initial={{ opacity: 0, y: -100 }}
+              animate={{ opacity: 1, y: -10 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="toggle-modal"
+            >
               <div className="menu-container">
                 <div className="Position spa">
                   <div>
                     <img src={Images.headphone} alt="headphone" />
                   </div>
                   <h4>HEADPHONES</h4>
-                  <Link to="/headphones">
+                  <Link
+                    onClick={handleCart}
+                    to="/headphones"
+                  >
                     <p>
                       <span>SHOP</span> <IoIosArrowForward />
                     </p>
@@ -55,7 +60,10 @@ const Navbar = () => {
                     <img src={Images.speaker} alt="speaker" />
                   </div>
                   <h4>SPEAKERS</h4>
-                  <Link to="/speakers">
+                  <Link
+                    onClick={handleCart}
+                    to="/speakers"
+                  >
                     <p>
                       <span>SHOP</span> <IoIosArrowForward />
                     </p>
@@ -66,14 +74,17 @@ const Navbar = () => {
                     <img src={Images.earphone} alt="earphone" />
                   </div>
                   <h4>EARPHONES</h4>
-                  <Link to="/earphones">
+                  <Link
+                    onClick={handleCart}
+                    to="/earphones"
+                  >
                     <p>
                       <span>SHOP</span> <IoIosArrowForward />
                     </p>
                   </Link>
                 </div>
               </div>
-            </div>
+            </motion.div>
           )}
         </div>
         <div className="nav__item-logo">

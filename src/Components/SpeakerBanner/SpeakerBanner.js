@@ -27,28 +27,40 @@ const SpeakerBanner = () => {
             <br />
             remarkable sound.
           </p>
-          {speakers.filter((speaker)=>speaker.name.includes('ZX9 SPEAKER')).map((filtered)=>(
-          <Link to={`/product-details/${filtered.slug.current}`} state={filtered} key={filtered._id}>
-            <button>SEE PRODUCT</button>
-          </Link>
-          ))}
+          {speakers
+            .filter((speaker) => speaker.name.includes("ZX9 SPEAKER"))
+            .map((filtered) => (
+              <Link
+                to={`/product-details/${filtered.slug.current}`}
+                state={filtered}
+                key={filtered._id}
+              >
+                <button>SEE PRODUCT</button>
+              </Link>
+            ))}
         </div>
       </div>
       <div className="speaker__sec2">
         <div className="speaker__sec2-img">
           <picture>
-          <source media="(max-width: 550px)" srcSet={Images.speakermobile} />
-          <source media="(max-width: 900px )" srcSet={Images.speakertab} />
-          <img src={Images.bitspeaker} alt="bitspeaker" />
+            <source media="(max-width: 550px)" srcSet={Images.speakermobile} />
+            <source media="(max-width: 900px )" srcSet={Images.speakertab} />
+            <img src={Images.bitspeaker} alt="bitspeaker" />
           </picture>
         </div>
         <div className="speaker__sec2-content">
           <h3>ZX7 SPEAKER</h3>
-          {speakers.filter((speaker)=>speaker.name.includes('ZX7 SPEAKER')).map((filtered)=>(
-          <Link to={`/product-details/${filtered.slug.current}`} state={filtered} key={filtered._id}>
-            <button>SEE PRODUCT</button>
-          </Link>
-          ))}
+          {speakers
+            .filter((speaker) => speaker.name.includes("ZX7 SPEAKER"))
+            .map((filtered) => (
+              <Link
+                to={`/product-details/${filtered.slug.current}`}
+                state={filtered}
+                key={filtered._id}
+              >
+                <button>SEE PRODUCT</button>
+              </Link>
+            ))}
         </div>
       </div>
     </div>

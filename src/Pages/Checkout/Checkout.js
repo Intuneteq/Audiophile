@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { PaystackButton } from 'react-paystack';
-import PaystackPop from '@paystack/inline-js';
+import PaystackPop from "@paystack/inline-js";
 
 import { Images } from "../../Constants";
 import "./Checkout.scss";
@@ -10,57 +9,39 @@ import { useStateContext } from "../../context/StateContext";
 
 const Checkout = () => {
   const navigate = useNavigate();
-  const { cartItems, totalPrice, grandTotal } = useStateContext();
+  const {
+    cartItems,
+    totalPrice,
+    grandTotal,
+  } = useStateContext();
   const [onDelivery, setOnDelivery] = useState(false);
   const [eMoney, setEMoney] = useState(false);
   const [payStack, setPayStack] = useState(false);
-
-  // const publicKey = "pk_test_bbba1a1911f3c31b9aa724a268504cd10e139815";
-  // const amount = 1000000; // Remember, set in kobo!
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
 
-  let amount = grandTotal * 1000
-
-  // const componentProps = {
-  //   email,
-  //   amount,
-  //   metadata: {
-  //     name,
-  //     phone,
-  //   },
-  //   publicKey,
-  //   text: "PAY WITH PAYSTACK",
-  //   onSuccess: () => {
-  //     setName("")
-  //     setEmail("")
-  //     setPhone("")
-  //     alert("Thanks for doing business with us! Come back soon!!")
-  //     navigate('/')
-  //   },
-  //   onClose: () => alert("Wait! Don't leave :("),
-  // }
+  let amount = grandTotal * 1000;
 
   const payWithPayStack = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const paystack = new PaystackPop();
     paystack.newTransaction({
       key: "pk_test_bbba1a1911f3c31b9aa724a268504cd10e139815",
       amount: amount,
       email,
       name,
-      phone, 
-      onSuccess(transaction){
-        let message = `Payment Complete! Reference ${transaction.reference}`
-        alert(message)
-        navigate('/')
+      phone,
+      onSuccess(transaction) {
+        let message = `Payment Complete! Reference ${transaction.reference}`;
+        alert(message);
+        navigate("/checkout/success-redirect");
       },
-      onCancel(){
-        alert('Transaction canceled')
-      }
-    })
-  }
+      onCancel() {
+        alert("Transaction canceled");
+      },
+    });
+  };
 
   const handleEMoney = () => {
     setEMoney(true);
@@ -172,7 +153,6 @@ const Checkout = () => {
                     />
                     <label>Cash on Delivery</label>
                   </div>
-                  
                 </div>
               </div>
               {eMoney && (
@@ -243,12 +223,13 @@ const Checkout = () => {
               <span>${grandTotal}</span>
             </div>
             <div className="summary-button">
-                {payStack ? (
-                  // <PaystackButton {...componentProps} />
-                  <button type="submit" onClick={payWithPayStack}>PAY WITH PAYSTACK</button>
-                ) : (
-                  <button type="button">CONTINUE & PAY</button>
-                )}
+              {payStack ? (
+                <button type="submit" onClick={payWithPayStack}>
+                  PAY WITH PAYSTACK
+                </button>
+              ) : (
+                <button type="submit">CONTINUE & PAY</button>
+              )}
             </div>
           </div>
         </div>

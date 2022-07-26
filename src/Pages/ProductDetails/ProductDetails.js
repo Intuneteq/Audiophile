@@ -10,15 +10,8 @@ import "./ProductDetails.scss";
 import MayLike from "../../Components/MayLike/MayLike";
 
 const ProductDetails = () => {
-  const {
-    incQty,
-    decQty,
-    qty,
-    onAdd,
-    earphones,
-    speakers,
-    headphones,
-  } = useStateContext();
+  const { incQty, decQty, qty, onAdd, earphones, speakers, headphones } =
+    useStateContext();
   const location = useLocation();
   const item = location.state;
   const navigate = useNavigate();
